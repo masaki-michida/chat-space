@@ -1,0 +1,10 @@
+
+@mixin wid_hei($width,$height) {
+  width: $width;
+  height: $height;
+}
+
+@mixin flex_just ($justify){
+  display: flex;
+  justify-content: $justify;
+}

@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 0) do
     t.datetime "remember_created_at"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.index ["name"], name: "index_name", using: :btree
   end
 
 end

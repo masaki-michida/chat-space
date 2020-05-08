@@ -1,7 +1,6 @@
 .side-bar
 
   .side-bar__user-name
-    = current_user.name
 
     .side-bar__user-name__top-items
 
@@ -11,7 +10,7 @@
       %ul.side-bar__user-name__top-items__user-list
 
         %li
-          = link_to edit_user_path(current_user) do
+          = link_to '#' do
             = icon('fas','edit') 
 
         %li

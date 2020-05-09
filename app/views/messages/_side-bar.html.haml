@@ -18,13 +18,10 @@
             = icon('fa','cog') 
 
   .side-bar__groups
-    
-    =link_to '#' do
+    - current_user.groups.each do |group|
       .side-bar__groups__group
-        %p.side-bar__groups__group__group-name group-name
-        %p.side-bar__groups__group__latest-message latest-message
-
-    =link_to '#' do
-      .side-bar__groups__group
-        %p.side-bar__groups__group__group-name group-name
-        %p.side-bar__groups__group__latest-message latest-message
+        = link_to '#' do
+          .side-bar__groups__group__group-name
+            = group.name
+          .side-bar__groups__group__message
+            メッセージはまだありません。

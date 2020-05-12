@@ -32,8 +32,12 @@ $(function(){
                   </div>`
       return html;
     }
-    
   }
+
+  function sendDisableFalse(){
+    $('.main-chat__message-form__parts__send').prop('disabled', false);
+  }
+
   $('#new_message').on('submit',function(e){
     e.preventDefault();
     var formData = new FormData(this);
@@ -51,9 +55,10 @@ $(function(){
         $('.main-chat__message-list').append(html);
         $('form')[0].reset();
         $('.main-chat__message-list').animate({ scrollTop: $('.main-chat__message-list')[0].scrollHeight});
-        $('.main-chat__message-form__parts__send').prop('disabled', false);
+        sendDisableFalse();
     }).fail(function(){
         alert("メッセージの送信に失敗しました");
+        sendDisableFalse();
     });
   });
 });

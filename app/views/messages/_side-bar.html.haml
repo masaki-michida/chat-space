@@ -1,30 +1,27 @@
 .side-bar
 
   .side-bar__user-name
-
+    
     .side-bar__user-name__top-items
-
+      
       %p.side-bar__user-name__top-items__name
-        name
+        = current_user.name
 
       %ul.side-bar__user-name__top-items__user-list
 
         %li
-          = link_to '#' do
+          = link_to new_group_path do
             = icon('fas','edit') 
 
         %li
-          = link_to '#' do
+          = link_to edit_user_path(current_user) do
             = icon('fa','cog') 
 
   .side-bar__groups
-    
-    =link_to '#' do
+    - current_user.groups.each do |group|
       .side-bar__groups__group
-        %p.side-bar__groups__group__group-name group-name
-        %p.side-bar__groups__group__latest-message latest-message
-
-    =link_to '#' do
-      .side-bar__groups__group
-        %p.side-bar__groups__group__group-name group-name
-        %p.side-bar__groups__group__latest-message latest-message
+        = link_to group_messages_path(group) do
+          .side-bar__groups__group__group-name
+            = group.name
+          .side-bar__groups__group__message
+            = group.show_last_message

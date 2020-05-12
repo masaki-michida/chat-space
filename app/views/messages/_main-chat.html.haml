@@ -4,86 +4,31 @@
 
     .main-chat__group-info__left
 
-      %h2.main-chat__group-info__left__group
-        group-name
+      .main-chat__group-info__left__group
+        = @group.name
       %ul.main-chat__group-info__left__member
         Member : 
-        %li.main-chat__group-info__left__member__list
-          aaaaa
-        %li.main-chat__group-info__left__member__list
-          bbbb
+        - @group.users.each do |member|
+          %li.main-chat__group-info__left__member__list 
+          = member.name
 
-    = link_to '#' do
+    = link_to edit_group_path(@group.id) do
       .main-chat__group-info__edit Edit
 
   .main-chat__message-list
-
-    .main-chat__message-list__data
-    
-      .main-chat__message-list__data__info
-
-        %p.main-chat__message-list__data__info__name
-          name
-        %p.main-chat__message-list__data__info__date
-          2020/05/07(thu)02:00:29
-    
-      %p.main-chat__message-list__data__text
-        text-message
-
-      =image_tag "/uploads/message/image/view_drill.png"
-        
-
-    .main-chat__message-list__data
-    
-      .main-chat__message-list__data__info
-
-        %p.main-chat__message-list__data__info__name
-          name
-        %p.main-chat__message-list__data__info__date
-          2020/05/07(thu)02:00:29
-    
-      %p.main-chat__message-list__data__text
-        text-message
-    
-    .main-chat__message-list__data
-    
-      .main-chat__message-list__data__info
-
-        %p.main-chat__message-list__data__info__name
-          name
-        %p.main-chat__message-list__data__info__date
-          2020/05/07(thu)02:00:29
-    
-      %p.main-chat__message-list__data__text
-        text-message
-
-      = image_tag "/uploads/message/image/view_drill.png"
-
-    .main-chat__message-list__data
-    
-      .main-chat__message-list__data__info
-
-        %p.main-chat__message-list__data__info__name
-          name
-        %p.main-chat__message-list__data__info__date
-          2020/05/07(thu)02:00:29
-    
-      %p.main-chat__message-list__data__text
-        text-message
-
-      =image_tag "/uploads/message/image/view_drill.png"
-
-
+    = render @messages
 
   .main-chat__message-form
 
-    %form.main-chat__message-form__parts
+    = form_for [@group, @message] do |f|
 
-      .main-chat__message-form__parts__new
-        %input.main-chat__message-form__parts__new__input{type: "text", placeholder: "type a message"}
-        %label.main-chat__message-form__parts__new__label
-          = icon('far','image')
-          %input.main-chat__message-form__parts__new__label__file{type: "file"}
+      .main-chat__message-form__parts
+      
+        .main-chat__message-form__parts__new
+          = f.text_field :body, class: 'main-chat__message-form__parts__new__input', placeholder: "type a message"
+          %label.main-chat__message-form__parts__new__label
+            = icon('far','image')
+            = f.file_field :image, class: 'main-chat__message-form__parts__new__label__file'
 
-      %input.main-chat__message-form__parts__send{type: "submit", value: "Send"}
+        = f.submit 'Send', class: 'main-chat__message-form__parts__send'
 

@@ -5,7 +5,7 @@
     %p.main-chat__message-list__data__info__name
       = message.user.name
     %p.main-chat__message-list__data__info__date
-      = message.created_at.strftime("%Y年%m月%d日 %H時%M分")
+      = message.created_at.to_s(:japan)
 
   %p.main-chat__message-list__data__text
     = message.body

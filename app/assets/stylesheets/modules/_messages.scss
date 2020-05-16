@@ -120,9 +120,9 @@
 
     &__edit{
       height: 40px;
-      border: solid 1px $blue;
+      border: solid 1px $light_blue;
       font-size: 16px;
-      color: $blue;
+      color: $light_blue;
       padding: 0 20px;
       margin-top: 30px;
       line-height: 40px;
@@ -213,7 +213,7 @@
         @include wid_hei(100px,50px);
         padding: 0 30px;
         margin-left: 15px;
-        background-color: $blue;
+        background-color: $light_blue;
         color: $white;
         cursor: pointer;
 

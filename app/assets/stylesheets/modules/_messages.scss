@@ -147,7 +147,7 @@
         &__name{
           
           font-size: 16px;
-          color: $cyan;
+          color: $black;
           font-weight: bold;
         }
 
@@ -162,7 +162,7 @@
 
       &__text{
         
-        color: $cyan;
+        color: $black;
         font-size: 14px;
         margin-bottom: 10px;
       }
@@ -188,7 +188,7 @@
           
           @include wid_hei(100%,50px);
           padding: 0 40px 0 10px;
-          color: $cyan;
+          color: $black;
           border-style: none;
           
         }
